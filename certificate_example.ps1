@@ -2,10 +2,10 @@
 [Net.ServicePointManager]::ServerCertificateValidationCallback = { $true }
 
 # Specify the path to the CSV file with the URIs
-$csvPath = 'E:\Expires_cert\Expires-date.csv'
+$csvPath = 'Path\to\uris.csv'
 
 # Specify the output CSV file path
-$outputCsvPath = 'E:\Expires_cert\Output_Expires.csv'
+$outputCsvPath = 'Path\to\output.csv'
 
 # Read the CSV file
 $uris = Import-Csv $csvPath
@@ -48,3 +48,8 @@ foreach ($uriInfo in $uris) {
 $outputArray | Export-Csv -Path $outputCsvPath -NoTypeInformation
 
 Write-Host "Output information exported to: $outputCsvPath"
+
+
+------------------------bat file 
+@ECHO OFF
+Powershell.exe -executionpolicy bypass -File  <full path to ps1>
